@@ -1,7 +1,8 @@
 import { registerAs } from '@nestjs/config';
 import * as Joi from 'joi';
+import { ConfigurationParams } from './config.constant';
 
-const DEFAULT_RABBIT_PORT = 5672;
+const DEFAULT_RABBIT_PORT = ConfigurationParams.DEFAULT_RABBIT_PORT;
 
 export interface RabbitConfig {
   host: string;

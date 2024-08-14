@@ -1,10 +1,11 @@
 import { PrismaClient } from '@prisma/client';
+import { PrismaModelConfigs } from './prisma-model.constant';
 
-const FIRST_POST_UUID = '3234545345-7asdfd5-435df-23432423-234234234234234';
-const SECOND_POST_UUID = '32423dfsdfs0-adsasd-44435-6546546456-45645645645';
+const FIRST_POST_UUID = PrismaModelConfigs.FIRST_POST_UUID;
+const SECOND_POST_UUID = PrismaModelConfigs.SECOND_POST_UUID;
 
-const FIRST_USER_ID = 'sada324234sdffsf23423423';
-const SECOND_USER_ID = 'zxc234234sdfsdf2342332';
+const FIRST_USER_ID = PrismaModelConfigs.FIRST_USER_ID;
+const SECOND_USER_ID = PrismaModelConfigs.SECOND_USER_ID;
 
 enum PostType {
   video = 'video',
@@ -16,7 +17,7 @@ function getPosts() {
   return [
     {
       id: FIRST_POST_UUID,
-      name: 'Отличный текст для проверки',
+      postTitle: 'Отличный текст для проверки',
       userId: FIRST_USER_ID,
       postAnons: 'какой-то там анонс публикации',
       postText: 'Какой-то там текст',
@@ -55,7 +56,7 @@ async function seedDb(prismaClient: PrismaClient) {
       update: {},
       create: {
         id: post.id,
-        name: post.name ? post.name : '',
+        postTitle: post.postTitle ? post.postTitle : '',
         postAnons: post.postAnons ? post.postAnons : '',
         postText: post.postText ? post.postText : '',
         quoteText: post.quoteText ? post.quoteText : '',

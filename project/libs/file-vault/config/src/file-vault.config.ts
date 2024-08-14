@@ -1,8 +1,9 @@
 import { registerAs } from '@nestjs/config';
 import * as Joi from 'joi';
+import { FileVaultConfigs } from './file-vault.enum';
 
-const DEFAULT_PORT = 3000;
-const DEFAULT_MONGO_PORT = 27018;
+const DEFAULT_PORT = FileVaultConfigs.DEFAULT_PORT;
+const DEFAULT_MONGO_PORT = FileVaultConfigs.DEFAULT_MONGO_PORT;
 const ENVIRONMENTS = ['development', 'production', 'stage'] as const;
 
 type Environment = (typeof ENVIRONMENTS)[number];
